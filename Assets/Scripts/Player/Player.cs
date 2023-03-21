@@ -12,7 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float jumpForce;
     private bool isGrounded;
-    private string GroundTag = "Ground";
+    private string groundTag = "Ground";
+    private string enemyTag = "Enemy";
 
     // Start is called before the first frame update
     void Start()
@@ -71,9 +72,16 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag(GroundTag))
-        {
+        if (collision.gameObject.CompareTag(groundTag))
             isGrounded = true;
-        }
+
+        if (collision.gameObject.CompareTag(enemyTag))
+            Destroy(this.gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(enemyTag))
+            Destroy(this.gameObject);
     }
 }

@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5385397688694342486}
   - component: {fileID: 3248540815751342404}
   - component: {fileID: 5385397688694342491}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RedZombie
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

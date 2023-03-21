@@ -6,7 +6,7 @@ public class CameraBehavior : MonoBehaviour
 {
     private Transform playerTransform;
     private Vector3 temporaryPosition;
-    private float clampX = 46f;
+    private float clampX = 47.5f;
 
     private void Start()
     {
@@ -15,9 +15,20 @@ public class CameraBehavior : MonoBehaviour
 
     private void LateUpdate()
     {
+        try
+        {
+            // changing X position of cameraa according to player X position
+            temporaryPosition = this.transform.position;
+            temporaryPosition.x = Mathf.Clamp(playerTransform.position.x, -clampX, clampX);
+            this.transform.position = temporaryPosition;
+        }
+        catch (MissingReferenceException)
+        {
+            return;
+        }
         // changing X position of cameraa according to player X position
-        temporaryPosition = this.transform.position;
+        /*temporaryPosition = this.transform.position;
         temporaryPosition.x = Mathf.Clamp(playerTransform.position.x, -clampX, clampX);
-        this.transform.position = temporaryPosition;
+        this.transform.position = temporaryPosition;*/
     }
 }
