@@ -11,6 +11,7 @@ public class CameraBehavior : MonoBehaviour
     private void Start()
     {
         playerTransform = GameObject.FindWithTag("Player").transform;
+        Debug.Log("The selected index: " + GameManager.instance.CharIndex);
     }
 
     private void LateUpdate()

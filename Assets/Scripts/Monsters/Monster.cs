@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
+    [HideInInspector]
     public float speed;
     private Rigidbody2D rigidbody2d;
 
